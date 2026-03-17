@@ -8,6 +8,7 @@ namespace WpfApp1.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private Brush _boxColor = Brushes.Gray; // 초기 색상
+        private string _boxColorName = "Gray"; // 초기 색상 string 값
 
         public Brush BoxColor
         {
@@ -16,6 +17,16 @@ namespace WpfApp1.ViewModels
             {
                 _boxColor = value;
                 OnPropertyChanged(nameof(BoxColor));
+            }
+        }
+
+        public string BoxColorName
+        {
+            get => _boxColorName;
+            set
+            {
+                _boxColorName = value;
+                OnPropertyChanged(nameof(BoxColorName));
             }
         }
 
@@ -31,6 +42,7 @@ namespace WpfApp1.ViewModels
                     {
                         var brush = (Brush)new BrushConverter().ConvertFromString(name);
                         BoxColor = brush;
+                        BoxColorName = name;
                     }
                 },
                 canExecute: colorName => {

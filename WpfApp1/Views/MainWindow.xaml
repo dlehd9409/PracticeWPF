@@ -3,14 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:local="clr-namespace:WpfApp1" 
+        xmlns:views="clr-namespace:WpfApp1.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel VerticalAlignment="Center">
 
-        <Rectangle Width="200" Height="100" Margin="10"
-                   Fill="{Binding BoxColor}" 
-                   Stroke="Black" StrokeThickness="2"/>
+        <views:ColorStatusCard 
+            CardBrush="{Binding BoxColor}" 
+            CardName="{Binding BoxColorName}"
+            Width="250" 
+            Height="150" 
+            Margin="20"
+        />
 
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="빨강" Width="60" Margin="5"
